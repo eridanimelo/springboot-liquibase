@@ -6,17 +6,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "person")
+@SequenceGenerator(name = "seq_person", sequenceName = "seq_person", initialValue = 1, allocationSize = 1)
 @Schema(description = "Details of a Person")
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_person")
     @Schema(description = "The unique ID")
     private Long id;
 
@@ -29,11 +33,14 @@ public class Person {
     private String email;
 
     @Column(nullable = false, length = 15)
-    @Schema(description = "The phone of the Person", example = "+55 9999-9999")
+    @Schema(description = "The phone of the Person", example = "+55 9999-99999")
     private String phone;
 
-    public Object map(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'map'");
+    public Person() {
     }
+
+    public Person(Long id) {
+        this.id = id;
+    }
+
 }

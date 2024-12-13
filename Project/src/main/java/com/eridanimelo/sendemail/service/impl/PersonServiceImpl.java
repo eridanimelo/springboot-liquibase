@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @Transactional(rollbackFor = Exception.class)
 public class PersonServiceImpl implements PersonService {
 
-    private PersonRepository repository;
+    private final PersonRepository repository;
 
     @Override
     @Transactional(propagation = Propagation.NOT_SUPPORTED)

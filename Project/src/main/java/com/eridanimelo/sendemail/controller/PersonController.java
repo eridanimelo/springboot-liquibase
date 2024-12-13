@@ -2,6 +2,7 @@ package com.eridanimelo.sendemail.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ import com.eridanimelo.sendemail.model.Person;
 import com.eridanimelo.sendemail.service.PersonService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +33,10 @@ public class PersonController {
 
     @Operation(summary = "List all persons")
     @GetMapping
-    public Page<Person> listPersons(Pageable pageable) {
+    public Page<Person> listPersons(
+            @Parameter(description = "Paginação e ordenação", examples = {
+                    @ExampleObject(name = "Default Pagination", value = "{\"page\": 0, \"size\": 1, \"sort\": \"name,asc\"}")
+            }) @PageableDefault(size = 10, sort = "name,asc") Pageable pageable) {
         return service.getAllPersons(pageable);
     }
 
