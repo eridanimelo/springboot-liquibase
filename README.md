@@ -4,3 +4,6 @@ This project is built using **Java 23**, **Spring Boot**, **Swagger**, **Liquiba
 
 ## Project Structure
 The project is organized into the following directories:
+ - postgres
+ - Project
+
