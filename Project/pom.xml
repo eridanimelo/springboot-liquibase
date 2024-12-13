@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eridanimelo</groupId>
-	<artifactId>SendEmail</artifactId>
+	<artifactId>SpringLiquibase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SendEmail</name>
-	<description>Sending email with thymeleaf and springboot</description>
+	<name>SpringLiquibase</name>
+	<description>It demonstrates how to set up a PostgreSQL database using Docker Compose and how to generate the database schema from JPA entities.</description>
 	<url />
 	<licenses>
 		<license />
