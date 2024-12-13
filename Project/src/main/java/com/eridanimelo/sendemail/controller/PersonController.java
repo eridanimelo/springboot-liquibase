@@ -1,0 +1,68 @@
+package com.eridanimelo.sendemail.controller;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eridanimelo.sendemail.model.Person;
+import com.eridanimelo.sendemail.service.PersonService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/persons")
+@RequiredArgsConstructor
+@Tag(name = "Person", description = "Endpoints to manage Persons")
+public class PersonController {
+
+    private final PersonService service;
+
+    @Operation(summary = "List all persons")
+    @GetMapping
+    public Page<Person> listPersons(Pageable pageable) {
+        return service.getAllPersons(pageable);
+    }
+
+    @Operation(summary = "Search person by email")
+    @GetMapping("/email")
+    public ResponseEntity<Person> getPersonByEmail(@RequestParam String email) {
+        return service.findPersonByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @Operation(summary = "Create a new person")
+    @PostMapping
+    public Person createPerson(@RequestBody Person person) {
+        return service.createPerson(person);
+    }
+
+    @Operation(summary = "update an existing person")
+    @PutMapping("/{id}")
+    public ResponseEntity<Person> updatePerson(@PathVariable Long id, @RequestBody Person person) {
+        try {
+            return ResponseEntity.ok(service.updatePerson(id, person));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "delete a person by id")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePerson(@PathVariable Long id) {
+        service.deletePerson(id);
+        return ResponseEntity.noContent().build();
+    }
+
+}
