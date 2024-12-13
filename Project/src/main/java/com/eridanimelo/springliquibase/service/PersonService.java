@@ -1,11 +1,11 @@
-package com.eridanimelo.sendemail.service;
+package com.eridanimelo.springliquibase.service;
 
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.eridanimelo.sendemail.model.Person;
+import com.eridanimelo.springliquibase.model.Person;
 
 public interface PersonService {
 

@@ -1,4 +1,4 @@
-package com.eridanimelo.sendemail.controller;
+package com.eridanimelo.springliquibase.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eridanimelo.sendemail.model.Person;
-import com.eridanimelo.sendemail.service.PersonService;
+import com.eridanimelo.springliquibase.model.Person;
+import com.eridanimelo.springliquibase.service.PersonService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

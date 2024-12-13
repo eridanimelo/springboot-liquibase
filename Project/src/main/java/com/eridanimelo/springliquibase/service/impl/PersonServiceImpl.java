@@ -1,4 +1,4 @@
-package com.eridanimelo.sendemail.service.impl;
+package com.eridanimelo.springliquibase.service.impl;
 
 import java.util.Optional;
 
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.eridanimelo.sendemail.model.Person;
-import com.eridanimelo.sendemail.repository.PersonRepository;
-import com.eridanimelo.sendemail.service.PersonService;
+import com.eridanimelo.springliquibase.model.Person;
+import com.eridanimelo.springliquibase.repository.PersonRepository;
+import com.eridanimelo.springliquibase.service.PersonService;
 
 import lombok.RequiredArgsConstructor;
 

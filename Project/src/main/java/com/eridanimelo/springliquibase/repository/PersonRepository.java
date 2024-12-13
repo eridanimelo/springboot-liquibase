@@ -1,10 +1,10 @@
-package com.eridanimelo.sendemail.repository;
+package com.eridanimelo.springliquibase.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.eridanimelo.sendemail.model.Person;
+import com.eridanimelo.springliquibase.model.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
