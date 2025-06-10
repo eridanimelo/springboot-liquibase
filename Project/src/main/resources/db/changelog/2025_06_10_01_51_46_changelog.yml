@@ -1,0 +1,61 @@
+databaseChangeLog:
+- changeSet:
+    id: 1749520308392-1
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_endereco
+        startValue: 1
+- changeSet:
+    id: 1749520308392-2
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: enderecoPK
+            name: id
+            type: BIGINT
+        - column:
+            name: bairro
+            type: VARCHAR(255)
+        - column:
+            name: cep
+            type: BIGINT
+        - column:
+            name: cidade
+            type: VARCHAR(255)
+        - column:
+            name: complemento
+            type: VARCHAR(255)
+        - column:
+            name: logradouro
+            type: VARCHAR(255)
+        - column:
+            name: numero
+            type: VARCHAR(255)
+        - column:
+            name: uf
+            type: VARCHAR(255)
+        - column:
+            name: person_id
+            type: BIGINT
+        tableName: endereco
+- changeSet:
+    id: 1749520308392-3
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: person_id
+        baseTableName: endereco
+        constraintName: FK_PERSON_ID
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: person
+        validate: true
+

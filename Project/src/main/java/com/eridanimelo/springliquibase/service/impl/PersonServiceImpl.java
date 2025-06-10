@@ -12,14 +12,15 @@ import com.eridanimelo.springliquibase.model.Person;
 import com.eridanimelo.springliquibase.repository.PersonRepository;
 import com.eridanimelo.springliquibase.service.PersonService;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository repository;
+
+    public PersonServiceImpl(PersonRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     @Transactional(propagation = Propagation.NOT_SUPPORTED)

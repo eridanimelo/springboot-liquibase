@@ -3,12 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.1-SNAPSHOT</version>
+		<version>3.5.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.eridanimelo</groupId>
 	<artifactId>SpringLiquibase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -28,7 +30,7 @@
 		<url />
 	</scm>
 	<properties>
-		<java.version>23</java.version>
+		<java.version>25</java.version>
 		<timestamp>${maven.build.timestamp}</timestamp>
 		<maven.build.timestamp.format>yyyy_MM_dd_HH_mm_ss</maven.build.timestamp.format>
 	</properties>
@@ -66,17 +68,9 @@
 			<version>2.7.0</version>
 		</dependency>
 
-		<!-- LIQUIBASE -->
-		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-core</artifactId>
-			<version>4.30.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-text</artifactId>
-
 		</dependency>
 
 		<!-- PostgreSQL Driver -->
@@ -87,18 +81,17 @@
 			<version>42.7.4</version>
 		</dependency>
 
-		<!-- LOMBOK -->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.36</version>
-			<scope>provided</scope>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.31.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.liquibase.ext</groupId>
 			<artifactId>liquibase-hibernate6</artifactId>
-			<version>4.30.0</version>
+			<version>4.31.1</version>
+			<scope>runtime</scope>
 		</dependency>
 
 

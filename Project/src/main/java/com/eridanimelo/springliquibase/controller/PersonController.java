@@ -21,15 +21,17 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/persons")
-@RequiredArgsConstructor
 @Tag(name = "Person", description = "Endpoints to manage Persons")
 public class PersonController {
 
     private final PersonService service;
+
+    public PersonController(PersonService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "List all persons")
     @GetMapping
